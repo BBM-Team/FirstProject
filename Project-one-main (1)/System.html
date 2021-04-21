@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Admin - Library System</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
+    />
+  </head>
+
+  <body style="background: #5a5751">
+    <!-- MODALS -->
+    <!-- NEW CUSTOMER -->
+    <div
+      class="modal fade"
+      id="userModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="userModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">NEW CUSTOMER</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-scroller">
+              <div class="container-content-middle">
+                <form role="form" class="mx-auto text-center signup-form">
+                  <div class="form-group">
+                    <input
+                      id="firstName"
+                      class="form-control"
+                      placeholder="First Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="lastName"
+                      class="form-control"
+                      placeholder="Last Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="email"
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="password"
+                      type="password"
+                      class="form-control"
+                      placeholder="Password"
+                      required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <input
+                      id="c_password"
+                      type="password"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-5">
+                    <button
+                      id="newCustomerButton"
+                      type="button"
+                      class="btn btn-secondary"
+                    >
+                      Add Customer
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- UPDATE CUSTOMER -->
+    <div
+      class="modal fade"
+      id="updateUserModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateUserModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">UPDATE CUSTOMER</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-scroller">
+              <div class="container-content-middle">
+                <form role="form" class="mx-auto text-center signup-form">
+                  <div class="form-group">
+                    <input
+                      id="ufirstName"
+                      class="form-control"
+                      placeholder="First Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="ulastName"
+                      class="form-control"
+                      placeholder="Last Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="uemail"
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      id="upassword"
+                      type="password"
+                      class="form-control"
+                      placeholder="Password"
+                      required
+                    />
+                  </div>
+                  <div class="form-group mb-3">
+                    <input
+                      id="uc_password"
+                      type="password"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-5">
+                    <button
+                      id="confirmUpdateCustomerButton"
+                      type="button"
+                      class="btn btn-secondary"
+                    >
+                      Update Customer
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW BOOK -->
+    <div
+      class="modal fade"
+      id="bookModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="bookModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">NEW BOOK</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-scroller">
+              <div class="container-content-middle">
+                <form role="form" class="mx-auto text-center">
+                  <div class="form-group">
+                    <div class="form-row">
+                      <label for="inputBook">Name</label>
+                      <input
+                      id="Name"
+                      class="form-control"
+                      placeholder="Book Name"
+                      required
+                    />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-row">
+                        <label for="inputAuthor">Name</label>
+                        <input
+                        id="Author"
+                        class="form-control"
+                        placeholder="Book Author"
+                        required
+                      />
+                    </div>
+					</div>
+					<div class="form-group">
+                    <div class="form-row">
+                        <label for="inputDescribe">Book Description</label>
+                        <input
+                        id="Description"
+                        class="form-control"
+                        placeholder="Book Description"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="form-row">
+                        <label for="inputImg">Image URL</label>
+                        <input
+                        id="Image"
+                        class="form-control"
+                        placeholder="Image URL"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  
+                  <button
+                    id="newBookButton"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Add Book
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- UPDATE BOOKING -->
+    <div
+      class="modal fade"
+      id="updateBookModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateBookModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">UPDATE BOOKING</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-scroller">
+              <div class="container-content-middle">
+                <form role="form" class="mx-auto text-center">
+                  <div class="form-group">
+                    <div class="form-row">
+                        <label for="uinputBook">Name</label>
+                        <input
+                        id="Name"
+                        class="form-control"
+                        placeholder="Book Name"
+                        required
+                      />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-row">
+                          <label for="uinputAuthor">Name</label>
+                          <input
+                          id="Author"
+                          class="form-control"
+                          placeholder="Book Author"
+                          required
+                        />
+                      </div>
+                    </div>
+					<div class="form-group">
+                    <div class="form-row">
+                        <label for="uinputDescribe">Book Description</label>
+                        <input
+                        id="Description"
+                        class="form-control"
+                        placeholder="Book Description"
+                        required
+                      />
+                    </div>
+                  </div>
+                    <div class="form-group">
+                      <div class="form-row">
+                          <label for="uinputImg">Image URL</label>
+                          <input
+                          id="Image"
+                          class="form-control"
+                          placeholder="Image URL"
+                          required
+                        />
+                    </div>
+                  </div>
+                  <button
+                    id="confirmUpdateBookButton"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Update Book
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESERVATION -->
+    <div
+      class="modal fade"
+      id="reserveModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="reserveModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">NEW RESERVATION</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-scroller">
+              <div class="container-content-middle">
+                <form role="form" class="mx-auto text-center signup-form">
+                  <div class="form-group">
+				    <div class="form-group">
+                      <input
+                        id="customerId"
+                        class="form-control"
+                        placeholder="Customer Id"
+                        required
+                      />
+                    </div>
+					<div class="form-group">
+                      <input
+                        id="bookId"
+                        class="form-control"
+                        placeholder="Book Id"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <input
+                        id="rFirstName"
+                        class="form-control"
+                        placeholder="First Name"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="rLastName"
+                        class="form-control"
+                        placeholder="Last Name"
+                        required
+                      />
+                    </div>
+					<div class="form-group">
+						<div class="form-row">
+						<label for="inputDate">Please select a date?</label>
+					</div>
+						<div class="form-row">
+					<input type="date" id="inputDate" />
+            </div>
+          </div>
+					<div class="form-group">
+					<div class="form-row">
+						<label for="inputDate">Please select a return date?</label>
+					</div>
+					<div class="form-row">
+						<input type="date" id="inputDate" />
+					</div>
+					</div>
+                  </div>
+
+                  <div class="mb-5">
+                    <button
+                      id="newReserveButton"
+                      type="button"
+                      class="btn btn-secondary"
+                    >
+                      Add Reservation
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- RESERVATION -->
+    <div
+      class="modal fade"
+      id="updateReserveModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="updateReserveModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">UPDATE Reservation</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body-scroller">
+              <div class="container-content-middle">
+                <form role="form" class="mx-auto text-center signup-form">
+                  <div class="form-group">
+				    <div class="form-group">
+                      <input
+                        id="ucustomerId"
+                        class="form-control"
+                        placeholder="Customer Id"
+                        required
+                      />
+                    </div>
+					<div class="form-group">
+                      <input
+                        id="ubookId"
+                        class="form-control"
+                        placeholder="Book Id"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <input
+                        id="urFirstName"
+                        class="form-control"
+                        placeholder="First Name"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        id="urLastName"
+                        class="form-control"
+                        placeholder="Last Name"
+                        required
+                      />
+                    </div>
+					<div class="form-group">
+						<div class="form-row">
+						<label for="inputDate">Please select a date?</label>
+					</div>
+						<div class="form-row">
+					<input type="date" id="uinputDate" />
+            </div>
+          </div>
+					<div class="form-group">
+					<div class="form-row">
+						<label for="inputDate">Please select a return date?</label>
+					</div>
+					<div class="form-row">
+						<input type="date" id="uinputDate" />
+					</div>
+					</div>
+                  </div>
+
+                  <div class="mb-5">
+                    <button
+                      id="confirmUpdateEmployeeButton"
+                      type="button"
+                      class="btn btn-secondary"
+                    >
+                      Update Reservation
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="page-section clearfix">
+      <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              id="books-tab"
+              data-toggle="tab"
+              href="#books"
+              role="tab"
+              aria-controls="books"
+              aria-selected="true"
+              >Books</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="customers-tab"
+              data-toggle="tab"
+              href="#customers"
+              role="tab"
+              aria-controls="customers"
+              aria-selected="false"
+              >Customers</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              id="reservations-tab"
+              data-toggle="tab"
+              href="#reservations"
+              role="tab"
+              aria-controls="reservations"
+              aria-selected="false"
+              >Reservations</a
+            >
+          </li>
+        </ul>
+        <div
+          class="tab-content"
+          id="myTabContent"
+          style="background-color: white; padding: 20px"
+        >
+          <div
+            class="tab-pane fade show active"
+            id="books"
+            role="tabpanel"
+            aria-labelledby="books-tab"
+          >
+            <a data-toggle="modal" href="#bookModal"
+              ><button
+                id="newBookButton"
+                type="button"
+                class="btn btn-primary mb-2"
+              >
+                New Book
+              </button></a
+            >
+            <div class="form-row mb-2">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  id="deleteBookId"
+                  placeholder="Book Id"
+                />
+              </div>
+              <div class="col">
+                <button
+                  id="deleteBookButton"
+                  type="button"
+                  class="btn btn-secondary"
+                >
+                  Delete Book
+                </button>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  id="updateBookId"
+                  placeholder="Book Id"
+                />
+              </div>
+              <div class="col">
+                <a data-toggle="modal" href="#updateBookModal"
+                  ><button
+                    id="updateBookButton"
+                    type="button"
+                    class="btn btn-info"
+                  >
+                    Update Book
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="customers"
+            role="tabpanel"
+            aria-labelledby="customers-tab"
+          >
+            <a data-toggle="modal" href="#userModal"
+              ><button type="button" class="btn btn-primary mb-2">
+                New Customer
+              </button></a
+            >
+            <div class="form-row mb-2">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  id="deleteCustomerId"
+                  placeholder="Customer Id"
+                />
+              </div>
+              <div class="col">
+                <button
+                  id="deleteCustomerButton"
+                  type="button"
+                  class="btn btn-secondary"
+                >
+                  Delete Customer
+                </button>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  id="updateCustomerId"
+                  placeholder="Customer Id"
+                />
+              </div>
+              <div class="col">
+                <a data-toggle="modal" href="#updateUserModal"
+                  ><button
+                    id="updateCustomerButton"
+                    type="button"
+                    class="btn btn-info"
+                  >
+                    Update Customer
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="reservations"
+            role="tabpanel"
+            aria-labelledby="reserve-tab"
+          >
+            <a data-toggle="modal" href="#reserveModal"
+              ><button type="button" class="btn btn-primary mb-2">
+                New Reservation
+              </button></a
+            >
+            <div class="form-row mb-2">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  id="deleteReserveId"
+                  placeholder="Reservation Id"
+                />
+              </div>
+              <div class="col">
+                <button
+                  id="deleteReserveButton"
+                  type="button"
+                  class="btn btn-secondary"
+                >
+                  Delete Reservation
+                </button>
+              </div>
+            </div>
+            <div class="form-row mb-2">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  name=""
+                  id="updateReserveId"
+                  placeholder="Reservation Id"
+                />
+              </div>
+              <div class="col">
+                <a data-toggle="modal" href="#updateReserveModal"
+                  ><button
+                    id="updateReserveButton"
+                    type="button"
+                    class="btn btn-info"
+                  >
+                    Update Reservation
+                  </button></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+   
+  </body>
+</html>
